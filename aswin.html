@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <a href="background.css"></a>
+<style>
+  body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    gap: 75px;
+    justify-content: center;
+    font-family: Arial;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size:xx-large;
+    justify-content: space-around;
+    justify-content: flex-start;
+    color: red; 
+    padding-left: 60px;
+
+
+    
+  }
+
+  #runBtn {
+    position: absolute;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    
+    
+    
+    
+  }
+
+  #msg {
+    position: absolute;
+    top: 20px;
+    font-size: 20px;
+    color: red;
+
+  }
+  #love{
+    font-size: 18px;
+    /* padding: 10px 20px; */ 
+    margin-left: -75px;
+  }
+  
+</style>
+</head>
+
+<body style="background-image: url(valentine.avif);">
+<p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> WILL YOU BE MY VALENTINE ❤️</p>
+
+<div id="msg"></div>
+<button  id="love" onclick="goNext()" style="font-size: 24px;"  class="btn btn-primary btn-lg" type="button">YES</button>
+<button id="runBtn">NO</button>
+
+<script>
+const btn = document.getElementById("runBtn");
+const msg = document.getElementById("msg");
+
+let tries = 0;
+
+btn.addEventListener("mouseover", function () {
+
+  tries++;
+
+  // Funny messages
+  if (tries == 5) {
+    msg.innerHTML = "Don't do that 😪";
+  }
+
+  if (tries == 6) {
+    msg.innerHTML = "This NO button is too crazy";
+  }
+
+  if (tries == 7) {
+    msg.innerHTML = "😂";
+  }
+
+  // After 8 tries stop running
+//   if (tries >= 8) {
+//     msg.innerHTML = "Fine! You win 🥲";
+//     return;
+//   }
+
+  // Move button randomly
+  let x = window.innerWidth - btn.offsetWidth;
+  let y = window.innerHeight - btn.offsetHeight;
+
+  let randomX = Math.floor(Math.random() * x);
+  let randomY = Math.floor(Math.random() * y);
+
+  btn.style.left = randomX + "px";
+  btn.style.top = randomY + "px";
+});
+
+// Final click event
+// btn.addEventListener("click", function () {
+//   if (tries >= 8) {
+//     alert("Congrats! You finally caught me 🎉");
+//   }
+// });
+</script>
+<script>
+    function goNext(){
+        window.location.href="love.html"
+    }
+</script>
+
+</body>
+</html>
